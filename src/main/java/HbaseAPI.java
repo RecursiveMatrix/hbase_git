@@ -13,7 +13,7 @@ public class HbaseAPI {
         Configuration conf = HBaseConfiguration.create();
         conf.set("hbase.zookeeper.quorum","hadoop201,hadoop202,hadoop203");
         Connection connection = ConnectionFactory.createConnection(conf);
-//        Admin admin = connection.getAdmin();
+        Admin admin = connection.getAdmin();
         Table table = connection.getTable(TableName.valueOf("test:student"));
 
 
@@ -102,7 +102,7 @@ public class HbaseAPI {
 //        TableName name = TableName.valueOf("teacher");
 //        admin.disableTable(name);
 //        admin.deleteTable(name);
-//        admin.close();
+        admin.close();
         connection.close();
     }
 }
